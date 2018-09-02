@@ -1,0 +1,50 @@
+<form class="app-form" [formGroup]="makeupForm">
+
+    <mat-form-field class="app-form-field">
+        <input matInput type="text" placeholder="Name *" formControlName="nameControl">
+        <mat-error *ngIf="nameControl.hasError('required')">
+            Name is required.
+        </mat-error>
+    </mat-form-field>
+
+    <app-file-form-field
+        [buttonMatColor]="'primary'"
+        [buttonLabel]="'Choose Picture'"
+        [inputLabel]="'Principal picture'"
+        [inputPlaceholder]="'Principal picture *'"
+        [inputAccept]="'image/x-png,image/gif,image/jpeg'"
+        [inputRequired]="true"
+        (fileChangeEvent)="picture1Change($event)"
+        (cancelEvent)="cancel1()"
+    ></app-file-form-field>
+    <input type="hidden" formControlName="picture1Control">
+
+    <app-file-form-field
+        [buttonMatColor]="'primary'"
+        [buttonLabel]="'Choose Picture'"
+        [inputLabel]="'Secondary picture'"
+        [inputPlaceholder]="'Secondary picture *'"
+        [inputAccept]="'image/x-png,image/gif,image/jpeg'"
+        [inputRequired]="true"
+        (fileChangeEvent)="picture2Change($event)"
+        (cancelEvent)="cancel2()"
+    ></app-file-form-field>
+    <input type="hidden" formControlName="picture2Control">
+    
+    <app-file-form-field
+        [buttonMatColor]="'primary'"
+        [buttonLabel]="'Choose Pdf'"
+        [inputLabel]="'Pdf'"
+        [inputPlaceholder]="'Pdf *'"
+        [inputAccept]="'application/pdf'"
+        [inputRequired]="true"
+        (fileChangeEvent)="pdfChange($event)"
+        (cancelEvent)="cancelPdf()"
+    ></app-file-form-field>
+    <input type="hidden" formControlName="pdfControl">
+
+    <button class="app-form-field" mat-button color="primary" [disabled]="makeupForm.invalid" (click)="saveMakeup()">
+        Save Makeup
+    </button>
+    
+</form>

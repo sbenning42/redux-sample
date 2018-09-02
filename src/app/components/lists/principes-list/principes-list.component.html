@@ -1,0 +1,7 @@
+<mat-list>
+  <ng-container *ngFor="let item of principeCollection$|async">
+    <mat-list-item (click)="select(item)">
+      {{ item.id }}: {{ item.name }}, {{ item.pictureName }} - {{ item.picture }}
+    </mat-list-item>
+  </ng-container>
+</mat-list>

@@ -1,0 +1,27 @@
+<form class="app-form-row" [formGroup]="fileForm" novalidate>
+  
+  <button mat-button class="app-form-field-l" color="{{ buttonMatColor || 'primary' }}" (click)="fileInput.click()">
+    {{ buttonLabel }}
+  </button>
+
+  <mat-form-field class="app-form-field app-pointer">
+    <mat-label>{{ inputLabel }}</mat-label>
+    <input matInput type="text" style="visibility: hidden;" formControlName="fileControl">
+    <input matInput type="text" placeholder="{{ inputPlaceholder }}" formControlName="inputControl">
+    <input #fileInput type="file" accept="{{ inputAccept }}" (change)="fileChange($event);fileInput.value=null" style="visibility: hidden;">
+    <mat-error *ngIf="inputRequired && fileControl.hasError('required')">
+      {{ inputLabel }} is required.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="app-form-img-preview">
+    <img *ngIf="fileData && acceptImg && file.type.search('image') !== -1" src="{{ fileData }}" />
+    <object *ngIf="fileData && acceptPdf && file.type.search('pdf') !== -1" #obj type="application/pdf" style="height: 250px;">
+    </object>
+  </div>
+
+  <button mat-icon-button [disabled]="!fileData" (click)="cancel()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+
+</form>

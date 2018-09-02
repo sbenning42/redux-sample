@@ -1,0 +1,30 @@
+<form class="app-form" [formGroup]="signUpForm">
+    <mat-form-field class="app-form-field">
+      <input matInput type="email" placeholder="Email *" formControlName="emailControl">
+      <mat-error *ngIf="emailControl.hasError('required')">
+        Email is required.
+      </mat-error>
+      <mat-error *ngIf="!emailControl.hasError('required') && emailControl.hasError('email')">
+        Email should be a valid email address.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="app-form-field">
+      <input matInput type="text" placeholder="Name *" formControlName="nameControl">
+      <mat-error *ngIf="nameControl.hasError('required')">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="app-form-field">
+      <input matInput type="password" placeholder="Password *" formControlName="passwordControl">
+      <mat-hint>Should contain at list 8 characters</mat-hint>
+      <mat-error *ngIf="passwordControl.hasError('required')">
+        Password is required.
+      </mat-error>
+      <mat-error *ngIf="!passwordControl.hasError('required') && passwordControl.hasError('minLength')">
+        Password should contain at list 8 characters.
+      </mat-error>
+    </mat-form-field>
+    <button class="app-form-field-l" mat-button color="primary" [disabled]="signUpForm.invalid" (click)="signUpRequest()">
+      Sign Up
+    </button>
+  </form>

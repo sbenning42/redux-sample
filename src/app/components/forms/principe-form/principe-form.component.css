@@ -1,0 +1,38 @@
+.app-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+.app-form > * + * {
+    margin-left: 16px;
+}
+.app-form-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.app-form-row > * + * {
+    margin-left: 16px;
+}
+.app-form-img-preview {
+    width: 25%;
+}
+.app-form-img-preview > img {
+    display: block;
+    width: 100%;
+}
+.app-form-field {
+    width: 100%;
+}
+.save {
+    margin-top: 16px;
+}
+.app-form-field-l {
+    width: 25%;
+}

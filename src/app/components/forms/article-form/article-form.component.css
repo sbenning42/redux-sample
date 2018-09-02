@@ -1,0 +1,17 @@
+.app-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+.app-form > * + * {
+    margin-left: 16px;
+}
+.app-form-field {
+    width: 100%;
+}
+.app-form-field-l {
+    width: 15%;
+}

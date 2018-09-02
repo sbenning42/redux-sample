@@ -1,0 +1,15 @@
+<mat-tab-group mat-stretch-tabs [dynamicHeight]="true">
+
+    <mat-tab label="Blog">
+        <app-blog-form (saveBlogEvent)="saveBlog($event)"></app-blog-form>
+    </mat-tab>
+
+    <mat-tab label="Video">
+        <app-video-form (saveVideoEvent)="saveVideo($event)"></app-video-form>
+    </mat-tab>
+
+    <mat-tab label="Product">
+        <app-article-product-form (saveProductEvent)="saveProduct($event)"></app-article-product-form>
+    </mat-tab>
+
+</mat-tab-group>

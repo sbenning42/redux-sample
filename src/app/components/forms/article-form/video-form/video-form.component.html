@@ -1,0 +1,11 @@
+<form class="app-form" [formGroup]="videoForm">
+  <mat-form-field class="app-form-field">
+    <input matInput type="text" placeholder="Name *" formControlName="nameControl">
+    <mat-error *ngIf="nameControl.hasError('required')">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+  <button class="app-form-field" mat-button color="primary" [disabled]="videoForm.invalid" (click)="saveVideo()">
+    Save Video
+  </button>
+</form>

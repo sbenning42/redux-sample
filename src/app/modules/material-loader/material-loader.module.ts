@@ -32,6 +32,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatFileUploadModule,
   ],
   declarations: [],
   exports: [
@@ -98,6 +101,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatFileUploadModule,
   ]
 })
 export class MaterialLoaderModule { }

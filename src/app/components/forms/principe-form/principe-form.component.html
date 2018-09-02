@@ -1,0 +1,28 @@
+<form class="app-form" [formGroup]="principeForm">
+
+    <mat-form-field class="app-form-field">
+        <input matInput type="text" placeholder="Name *" formControlName="nameControl">
+        <mat-error *ngIf="nameControl.hasError('required')">
+            Name is required.
+        </mat-error>
+    </mat-form-field>
+
+    <app-file-form-field
+        [buttonMatColor]="'primary'"
+        [buttonLabel]="'Choose Picture'"
+        [inputLabel]="'Picture'"
+        [inputPlaceholder]="'Picture *'"
+        [inputAccept]="'image/x-png,image/gif,image/jpeg'"
+        [inputRequired]="true"
+        [initialName]="initialPrincipe?.pictureName"
+        [initialUrl]="initialPrincipe?.picture"
+        (fileChangeEvent)="fileChange($event)"
+        (cancelEvent)="cancel()"
+    ></app-file-form-field>
+    <input type="hidden" formControlName="pictureControl">
+
+    <button class="app-form-field save" mat-button color="primary" [disabled]="principeForm.invalid" (click)="savePrincipe()">
+        Save Principe
+    </button>
+
+</form>

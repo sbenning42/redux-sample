@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }  from '@angular/router';
 
-import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
-import { HomePageComponent } from '../../components/home-page/home-page.component';
+import { PageNotFoundComponent } from '../../components/pages/page-not-found/page-not-found.component';
+import { HomePageComponent } from '../../components/pages/home-page/home-page.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },

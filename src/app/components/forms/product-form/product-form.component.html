@@ -1,0 +1,11 @@
+<form class="app-form" [formGroup]="productForm">
+    <mat-form-field class="app-form-field">
+        <input matInput type="text" placeholder="Name *" formControlName="nameControl">
+        <mat-error *ngIf="nameControl.hasError('required')">
+            Name is required.
+        </mat-error>
+    </mat-form-field>
+    <button class="app-form-field" mat-button color="primary" [disabled]="productForm.invalid" (click)="saveProduct()">
+        Save Product
+    </button>
+</form>

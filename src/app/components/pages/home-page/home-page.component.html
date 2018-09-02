@@ -1,0 +1,120 @@
+<mat-tab-group mat-stretch-tabs [dynamicHeight]="true" *ngIf="!(authentified$|async)">
+
+    <mat-tab label="Sign In">
+        <app-sign-in-form [initialEmail]="'sben@sben'" [initialPassword]="'Sben42Sben'" (signInEvent)="signIn($event)"></app-sign-in-form>
+    </mat-tab>
+
+    <mat-tab label="Sign Up">
+        <app-sign-up-form (signUpEvent)="signUp($event)"></app-sign-up-form>
+    </mat-tab>
+
+</mat-tab-group>
+
+<mat-tab-group mat-stretch-tabs [dynamicHeight]="true" *ngIf="(authentified$|async)">
+
+    <mat-tab label="Principes">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Create Principe
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type it's name and upload a picture file to describe it
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-principe-form (savePrincipeEvent)="savePrincipe($event)" [initialPrincipe]="selectedPrincipe"></app-principe-form>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List Principes
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        View and reorder all Principes ({{ principeCollectionLength$|async }})
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-principes-list [principeCollection$]="principeCollection$" (selectEvent)="selectPrincipe($event)"></app-principes-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-tab>
+
+    <mat-tab label="Makeups">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Create Makeup
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type it's name and upload a picture file to describe it
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-makeup-form (saveMakeupEvent)="saveMakeup($event)"></app-makeup-form>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List Makeups
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        View and reorder all Makeups
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-tab>
+
+    <mat-tab label="Articles">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Create Article
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type it's name and upload a picture file to describe it
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-article-form (saveArticleEvent)="saveArticle($event)"></app-article-form>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List Articles
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        View and reorder all Articles
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-tab>
+
+    <mat-tab label="Products">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Create Product
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type it's name and upload a picture file to describe it
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-product-form (saveProductEvent)="saveProduct($event)"></app-product-form>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List Products
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        View and reorder all Products
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-tab>
+
+</mat-tab-group>
